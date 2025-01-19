@@ -2,4 +2,5 @@
 \.gitignore
 README.md
 LICENSE
-
+init.sh
+debug_output.log

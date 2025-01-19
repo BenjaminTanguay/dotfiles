@@ -42,7 +42,11 @@ if [[ -d "$HOME/.work/zshrc" ]]; then
   done
 fi
 
+export ZSH="$HOME/.oh-my-zsh"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-
