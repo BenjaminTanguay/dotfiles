@@ -23,17 +23,34 @@ disable_debug() {
   fi
 }
 
+backup_config() {
+
+  if [ -d "$HOME/.config" ]; then
+    rm -rf $HOME/.config-bak
+    cp -R $HOME/.config $HOME/.config-bak
+  fi
+
+}
+
 oh-my-zsh_install() {
   # Check if Oh My Zsh is installed
   if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Oh My Zsh is not installed. Installing now..."
-    mv $HOME/zshrc $HOME/.zshrc.backup
 
+    enable_debug
+    if [ -f "$HOME/.zshrc" ]; then
+      rm -f $HOME/.zshrc.backup
+      mv $HOME/.zshrc $HOME/.zshrc.backup
+    fi
+
+    export ZSH="$HOME/.oh-my-zsh"
     # Install Oh My Zsh using the official script if not installed
-    export ZSH=$HOME/.oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-    mv $HOME/.zshrc.backup $HOME/.zshrc
+    $(sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended")
+    sleep 2
+    if [ -f "$HOME/.zshrc.backup" ]; then
+      rm -f $HOME/.zshrc
+      mv $HOME/.zshrc.backup $HOME/.zshrc
+    fi
 
     # Check if installation was successful
     if [ -d "$HOME/.oh-my-zsh" ]; then
@@ -41,6 +58,8 @@ oh-my-zsh_install() {
     else
       echo "Something went wrong during the installation. Please check the error messages above."
     fi
+
+    disable_debug
   else
     echo "Oh My Zsh is already installed!"
   fi
@@ -63,13 +82,12 @@ symlink_dotfiles() {
   # Change to the dotfiles root directory
   cd "$SCRIPT_DIR" || return 1
 
-  enable_debug
   # Symlink all files in the root of the dotfiles directory (excluding .config)
   stow --no-folding --dotfiles --adopt -R .
 }
 
 # By definition, a folder within .config is either managed entirely by stow or completly ignored by it.
-remove_matching_conflicting_config_dirs() {
+remove_matching_conflicting_config() {
   # Get the directory where the script is located (the root of .dotfiles)
   local SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
@@ -91,6 +109,8 @@ remove_matching_conflicting_config_dirs() {
       fi
     fi
   done
+
+  rm $HOME/.zshrc
 
   echo "Finished removing matching directories."
 }
@@ -116,8 +136,7 @@ brew_install_cask() {
 }
 
 remove_stow_symlinks
-cp -R $HOME/.config $HOME/.config-bak
-
+backup_config
 oh-my-zsh_install
 
 brew_install "ripgrep"
@@ -139,3 +158,5 @@ brew_install stow
 
 remove_matching_conflicting_config_dirs
 symlink_dotfiles
+
+cd $HOME/.dotfiles && git checkout HEAD dot-zshrc
