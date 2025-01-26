@@ -123,7 +123,7 @@ brew_install font-jetbrains-mono-nerd-font
 brew_install stow
 brew_install zsh-syntax-highlighting
 
-remove_matching_conflicting_config_dirs
+remove_matching_conflicting_config
 symlink_dotfiles
 
 cd $HOME/.dotfiles && git checkout HEAD dot-zshrc
