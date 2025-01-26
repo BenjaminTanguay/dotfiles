@@ -7,7 +7,6 @@ source "$HOME/.config/fzf/key-bindings.zsh"
 source "$HOME/.config/fzf/completion.zsh"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source <(fzf --zsh)
 
 alias reload="source ~/.zshrc"
 alias ls='eza --color=always --group-directories-first --icons'
@@ -17,8 +16,8 @@ alias cat='bat --style=plain'
 alias cd='z'
 alias k='kubectl'
 
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export GOPATH="$HOME/go"
 
+source "${ZSHRC_FOLDER}/fzf"
 source "${ZSHRC_FOLDER}/starship-setup"
 source "${ZSHRC_FOLDER}/zoxide-setup"
