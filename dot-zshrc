@@ -1,12 +1,13 @@
-ZSHRC_FOLDER="$HOME/.config/zshrc"
+DOT_CONFIG="${HOME}/.config"
+ZSHRC_FOLDER="${DOT_CONFIG}/zshrc"
 
 source "${ZSHRC_FOLDER}/nvim"
 source "${ZSHRC_FOLDER}/history"
 source "${ZSHRC_FOLDER}/source-work"
 source "${ZSHRC_FOLDER}/alias"
 source "${ZSHRC_FOLDER}/variable_exports"
-source "$HOME/.config/fzf/key-bindings.zsh"
-source "$HOME/.config/fzf/completion.zsh"
+source "${DOT_CONFIG}/fzf/key-bindings.zsh"
+source "${DOT_CONFIG}/fzf/completion.zsh"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source "${ZSHRC_FOLDER}/fzf"
 source "${ZSHRC_FOLDER}/starship-setup"
