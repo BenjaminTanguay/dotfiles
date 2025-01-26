@@ -1,6 +1,8 @@
-source "$HOME/.config/zshrc/nvim"
-source "$HOME/.config/zshrc/history"
-source "$HOME/.config/zshrc/source-work"
+ZSHRC_FOLDER="$HOME/.config/zshrc"
+
+source "${ZSHRC_FOLDER}/nvim"
+source "${ZSHRC_FOLDER}/history"
+source "${ZSHRC_FOLDER}/source-work"
 source "$HOME/.config/fzf/key-bindings.zsh"
 source "$HOME/.config/fzf/completion.zsh"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -14,10 +16,6 @@ alias lt='eza --tree --level=2 --color=always --group-directories-first --icons'
 alias cat='bat --style=plain'
 alias cd='z'
 alias k='kubectl'
-alias kx='kubectx'
-alias gsa='git-status-all'
-alias sehs='search-event-hub-case-sensitive'
-alias sehi='search-event-hub-case-insensitive'
 
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export GOPATH="$HOME/go"
