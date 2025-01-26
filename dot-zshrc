@@ -20,7 +20,5 @@ alias k='kubectl'
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export GOPATH="$HOME/go"
 
-
-
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+source "${ZSHRC_FOLDER}/starship-setup"
+source "${ZSHRC_FOLDER}/zoxide-setup"
