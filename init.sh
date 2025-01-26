@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable debug mode and redirect output to a file
-DEBUG=true
+DEBUG=false
 DEBUG_LOG="debug_output.log"
 
 # Function to enable debug mode if necessary
@@ -30,39 +30,6 @@ backup_config() {
     cp -R $HOME/.config $HOME/.config-bak
   fi
 
-}
-
-oh-my-zsh_install() {
-  # Check if Oh My Zsh is installed
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Oh My Zsh is not installed. Installing now..."
-
-    enable_debug
-    if [ -f "$HOME/.zshrc" ]; then
-      rm -f $HOME/.zshrc.backup
-      mv $HOME/.zshrc $HOME/.zshrc.backup
-    fi
-
-    export ZSH="$HOME/.oh-my-zsh"
-    # Install Oh My Zsh using the official script if not installed
-    $(sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended")
-    sleep 2
-    if [ -f "$HOME/.zshrc.backup" ]; then
-      rm -f $HOME/.zshrc
-      mv $HOME/.zshrc.backup $HOME/.zshrc
-    fi
-
-    # Check if installation was successful
-    if [ -d "$HOME/.oh-my-zsh" ]; then
-      echo "Oh My Zsh installed successfully!"
-    else
-      echo "Something went wrong during the installation. Please check the error messages above."
-    fi
-
-    disable_debug
-  else
-    echo "Oh My Zsh is already installed!"
-  fi
 }
 
 remove_stow_symlinks() {
@@ -137,7 +104,6 @@ brew_install_cask() {
 
 remove_stow_symlinks
 backup_config
-oh-my-zsh_install
 
 brew_install "ripgrep"
 brew_install_cask "ghostty"
