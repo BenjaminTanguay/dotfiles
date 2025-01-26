@@ -125,5 +125,4 @@ brew_install zsh-syntax-highlighting
 
 remove_matching_conflicting_config
 symlink_dotfiles
-
-cd $HOME/.dotfiles && git checkout HEAD dot-zshrc
+source "$HOME/.zshrc"
