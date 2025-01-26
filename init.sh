@@ -121,6 +121,7 @@ brew_install nushell
 brew_install carapace
 brew_install font-jetbrains-mono-nerd-font
 brew_install stow
+brew_install zsh-syntax-highlighting
 
 remove_matching_conflicting_config_dirs
 symlink_dotfiles
