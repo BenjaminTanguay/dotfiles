@@ -26,12 +26,6 @@ disabled = false
 format = '[$symbol](bold white) '   
 disabled = false
 
-[os.symbols]
-Windows = ' '
-Arch = '󰣇'
-Ubuntu = ''
-Macos = '󰀵'
-Unknown = '󰠥'
 
 # ---y
 
@@ -47,6 +41,7 @@ show_always = true
 [hostname]
 ssh_only = false
 format = '[//](black bold) [$hostname](bold blue) '
+ssh_symbol = " "
 disabled = false
 
 # Shows current directory
@@ -62,8 +57,7 @@ style = '#7ed1fb' # yellow bold
 
 # Shows current git branch
 [git_branch]
-# symbol = ' '
-symbol = ' '
+symbol = " "
 format = '[//](black bold) [$symbol\[$branch\]]($style) '
 # truncation_length = 0
 # truncation_symbol = '…/'
@@ -85,6 +79,7 @@ modified = ' '
 staged = '[++\($count\)](green)'
 renamed = '襁 '
 deleted = ' '
+tag_symbol = '  '
 
 # Shows kubernetes context and namespace
 [kubernetes]
@@ -96,4 +91,59 @@ disabled = false
 [[kubernetes.contexts]]
 context_pattern = '.*--(?P<cluster>[\w\/-]+)$'
 context_alias = "$cluster"
+
+
+[golang]
+symbol = " "
+
+
+[java]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
 
