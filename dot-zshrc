@@ -11,4 +11,5 @@ source "${DOT_CONFIG}/fzf/completion.zsh"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source "${ZSHRC_FOLDER}/fzf-setup"
 source "${ZSHRC_FOLDER}/starship-setup"
+source "${ZSHRC_FOLDER}/carapace"
 source "${ZSHRC_FOLDER}/zoxide-setup"
