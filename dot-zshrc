@@ -3,6 +3,7 @@ ZSHRC_FOLDER="${DOT_CONFIG}/zshrc"
 
 source "${ZSHRC_FOLDER}/nvim.zsh"
 source "${ZSHRC_FOLDER}/history.zsh"
+source "${ZSHRC_FOLDER}/functions.zsh"
 source "${ZSHRC_FOLDER}/source-work.zsh"
 source "${ZSHRC_FOLDER}/alias.zsh"
 source "${ZSHRC_FOLDER}/variable_exports.zsh"
