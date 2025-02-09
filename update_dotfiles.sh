@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Enable debug mode and redirect output to a file
+# Function to enable debug mode if necessary
 DEBUG=false
 DEBUG_LOG="debug_output.log"
 
@@ -23,15 +23,15 @@ disable_debug() {
   fi
 }
 
+# Backup current configuration files
 backup_config() {
-
   if [ -d "$HOME/.config" ]; then
     rm -rf $HOME/.config-bak
     cp -R $HOME/.config $HOME/.config-bak
   fi
-
 }
 
+# Remove any current symlinks managed by stow
 remove_stow_symlinks() {
   # Check if 'stow' is installed
   if command -v stow &>/dev/null; then
@@ -53,7 +53,7 @@ symlink_dotfiles() {
   stow --no-folding --dotfiles --adopt -R .
 }
 
-# By definition, a folder within .config is either managed entirely by stow or completly ignored by it.
+# Remove conflicting config files that may interfere with stow symlinks
 remove_matching_conflicting_config() {
   # Get the directory where the script is located (the root of .dotfiles)
   local SCRIPT_DIR="$(dirname "$(realpath "$0")")"
@@ -82,47 +82,9 @@ remove_matching_conflicting_config() {
   echo "Finished removing matching directories."
 }
 
-brew_install() {
-  echo "Installing $1"
-  if brew list $1 &>/dev/null; then
-    echo "$1 is already installed. Attempting to update..."
-    brew upgrade $1 && echo "$1 has been updated."
-  else
-    brew install $1 && echo "$1 is installed"
-  fi
-}
-
-brew_install_cask() {
-  echo "Installing $1"
-  if brew list $1 &>/dev/null; then
-    echo "$1 is already installed. Attempting to update..."
-    brew upgrade --cask $1 && echo "$1 has been updated."
-  else
-    brew install --cask $1 && echo "$1 is installed"
-  fi
-}
-
+# Execute the configuration update tasks
 remove_stow_symlinks
 backup_config
-
-brew_install "ripgrep"
-brew_install_cask "ghostty"
-brew_install_cask "firefox"
-brew_install "starship"
-brew_install_cask "nikitabobko/tap/aerospace"
-brew_install eza
-brew_install zoxide
-brew_install bat
-brew_install nvim
-brew_install fzf
-brew_install_cask aldente
-brew_install git
-brew_install nushell
-brew_install carapace
-brew_install font-jetbrains-mono-nerd-font
-brew_install stow
-brew_install zsh-syntax-highlighting
-
 remove_matching_conflicting_config
 symlink_dotfiles
 source "$HOME/.zshrc"

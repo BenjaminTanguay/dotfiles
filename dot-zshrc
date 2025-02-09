@@ -18,3 +18,4 @@ source "${ZSHRC_FOLDER}/fzf-setup.zsh"
 source "${ZSHRC_FOLDER}/plugins/vi-mode.plugin.zsh"
 source "${ZSHRC_FOLDER}/starship-setup.zsh"
 source "${ZSHRC_FOLDER}/zoxide-setup.zsh"
+find "${DOT_CONFIG}/scripts" -type f -exec test ! -x {} \; -exec chmod +x {} \;
