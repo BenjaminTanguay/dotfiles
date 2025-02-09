@@ -105,11 +105,11 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-c = 'workspace C'
-alt-v = 'workspace V'
-alt-x = 'workspace X'
-alt-z = 'workspace Z'
-alt-b = 'workspace B'
+alt-c = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace C']
+alt-v = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace V']
+alt-x = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace X']
+alt-z = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace Z']
+alt-b = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace B']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-c = 'move-node-to-workspace C'
