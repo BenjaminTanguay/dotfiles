@@ -15,7 +15,9 @@ source "${ZSHRC_FOLDER}/plugins/fzf-tab/fzf-tab.plugin.zsh"
 source "${ZSHRC_FOLDER}/fzf-tab-config.zsh"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source "${ZSHRC_FOLDER}/fzf-setup.zsh"
-source "${ZSHRC_FOLDER}/plugins/vi-mode.plugin.zsh"
 source "${ZSHRC_FOLDER}/starship-setup.zsh"
 source "${ZSHRC_FOLDER}/zoxide-setup.zsh"
 find "${DOT_CONFIG}/scripts" -type f -exec test ! -x {} \; -exec chmod +x {} \;
+### Begin SAP BTP command line interface autocomplete
+eval "$(btp --autocomplete=init:zsh)"
+### End SAP BTP command line interface autocomplete

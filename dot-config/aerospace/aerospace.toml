@@ -188,7 +188,7 @@ run = "move-node-to-workspace C"
 
 [workspace-to-monitor-force-assignment]
     Z = [1, 2]
-    X = ['DELL P3424WEB', 2]
-    C = ['DELL P3424WEB', 2]
-    V = ['DELL P3424WEB', 2]
+    X = ['DELL P3424WEB', 'DELL U3821DW', 2]
+    C = ['DELL P3424WEB', 'DELL U3821DW', 2]
+    V = ['DELL P3424WEB', 'DELL U3821DW', 2]
     B = 'built-in'

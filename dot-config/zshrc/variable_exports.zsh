@@ -1,2 +1,2 @@
 export GOPATH="$HOME/go"
-export KUBE_EDITOR='nvims'
+export KUBE_EDITOR='nvim'
