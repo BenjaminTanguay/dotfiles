@@ -7,6 +7,7 @@ source "${ZSHRC_FOLDER}/functions.zsh"
 source "${ZSHRC_FOLDER}/source-work.zsh"
 source "${ZSHRC_FOLDER}/alias.zsh"
 source "${ZSHRC_FOLDER}/variable_exports.zsh"
+source "${ZSHRC_FOLDER}/secrets.zsh"
 autoload -Uz compinit && compinit
 source "${ZSHRC_FOLDER}/carapace.zsh"
 source "${DOT_CONFIG}/fzf/completion.zsh"
