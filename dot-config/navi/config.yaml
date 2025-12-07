@@ -73,7 +73,7 @@ finder:
 # -----------------------
 cheats:
   paths:
-    - ~/.config/navi/cheat
+    - ~/.config/navi/cheats
 
 # -----------------------
 # Search settings
