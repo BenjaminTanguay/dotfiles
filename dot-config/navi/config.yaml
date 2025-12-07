@@ -1,0 +1,95 @@
+# ============================================
+# Navi configuration - Catppuccin Mocha Edition
+# ============================================
+
+# -----------------------
+# UI Styling (Navi columns)
+# -----------------------
+style:
+  tag:
+    color: cyan
+    width_percentage: 25
+    min_width: 18
+
+  comment:
+    color: blue
+    width_percentage: 40
+    min_width: 40
+
+  snippet:
+    color: green
+    width_percentage: 35
+    min_width: 20
+
+# -----------------------
+# Finder: fzf + Catppuccin
+# -----------------------
+finder:
+  command: fzf
+
+  # fzf when selecting cheats
+  overrides: >
+    --border
+    --height='70%'
+    --padding=1
+    --margin=1
+    --color=bg:#1e1e2e,fg:#cdd6f4
+    --color=border:#585b70
+    --color=header:#f38ba8
+    --color=info:#89b4fa
+    --color=prompt:#cba6f7
+    --color=pointer:#f5c2e7
+    --color=marker:#b4befe
+    --color=spinner:#f38ba8
+    --color=hl:#fab387
+    --color=fg+:#cdd6f4
+    --color=bg+:#313244
+    --color=hl+:#f9e2af
+
+  # fzf when selecting variable values
+  overrides_var: >
+    --border
+    --height='55%'
+    --padding=1
+    --margin=1
+    --color=bg:#1e1e2e,fg:#cdd6f4
+    --color=border:#585b70
+    --color=header:#f38ba8
+    --color=info:#89b4fa
+    --color=prompt:#cba6f7
+    --color=pointer:#f5c2e7
+    --color=marker:#b4befe
+    --color=spinner:#f38ba8
+    --color=hl:#fab387
+    --color=fg+:#cdd6f4
+    --color=bg+:#313244
+    --color=hl+:#f9e2af
+
+  # Default delimiter (kept explicit)
+  delimiter_var: "\\s\\s+"
+
+# -----------------------
+# Cheatsheet locations (absolute path)
+# -----------------------
+cheats:
+  paths:
+    - ~/.config/navi/cheat
+
+# -----------------------
+# Search settings
+# -----------------------
+search:
+  tags: null
+
+# -----------------------
+# Shell execution
+# -----------------------
+shell:
+  command: zsh
+  finder_command: null
+
+# -----------------------
+# Additional client behavior
+# -----------------------
+client:
+  tealdeer: false
