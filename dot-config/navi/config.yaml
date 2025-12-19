@@ -74,7 +74,7 @@ finder:
 cheats:
   paths:
     - ~/.config/navi/cheats
-
+    - ~/.work/navi/cheats 
 # -----------------------
 # Search settings
 # -----------------------
