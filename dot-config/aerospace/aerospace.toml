@@ -110,6 +110,11 @@ alt-v = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspac
 alt-x = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace X']
 alt-z = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace Z']
 alt-b = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace B']
+alt-1 = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace 1']
+alt-2 = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace 2']
+alt-3 = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace 3']
+alt-4 = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace 4']
+alt-5 = ['exec-and-forget ${HOME}/.config/scripts/close-bitwarden.sh', 'workspace 5']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-c = 'move-node-to-workspace C'
@@ -117,6 +122,11 @@ alt-shift-v = 'move-node-to-workspace V'
 alt-shift-x = 'move-node-to-workspace X'
 alt-shift-z = 'move-node-to-workspace Z'
 alt-shift-b = 'move-node-to-workspace B'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
