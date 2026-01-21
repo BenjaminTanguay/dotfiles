@@ -7,7 +7,6 @@ source "${ZSHRC_FOLDER}/functions.zsh"
 source "${ZSHRC_FOLDER}/source-work.zsh"
 source "${ZSHRC_FOLDER}/alias.zsh"
 source "${ZSHRC_FOLDER}/variable_exports.zsh"
-source "${ZSHRC_FOLDER}/secrets.zsh"
 autoload -Uz compinit && compinit
 source "${ZSHRC_FOLDER}/carapace.zsh"
 source "${DOT_CONFIG}/fzf/completion.zsh"
@@ -19,3 +18,13 @@ source "${ZSHRC_FOLDER}/fzf-setup.zsh"
 source "${ZSHRC_FOLDER}/starship-setup.zsh"
 source "${ZSHRC_FOLDER}/zoxide-setup.zsh"
 find "${DOT_CONFIG}/scripts" -type f -exec test ! -x {} \; -exec chmod +x {} \;
+
+# bun completions
+[ -s "/Users/I756394/.bun/_bun" ] && source "/Users/I756394/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+### Begin SAP BTP command line interface autocomplete
+eval "$(btp --autocomplete=init:zsh)"
+### End SAP BTP command line interface autocomplete
