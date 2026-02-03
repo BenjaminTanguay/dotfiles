@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Function to enable debug mode if necessary
 DEBUG=false

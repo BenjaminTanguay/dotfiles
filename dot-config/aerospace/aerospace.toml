@@ -189,6 +189,34 @@ run = "move-node-to-workspace B"
 if.app-id = 'com.zettlr.app'
 run = "move-node-to-workspace C"
 
+# Workspace-specific Ghostty windows (matched by title)
+# Order matters - specific rules must come before the default
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'WS1'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'WS2'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'WS3'
+run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'WS4'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'WS5'
+run = "move-node-to-workspace 5"
+
+# Default: Ghostty windows without a workspace tag go to V
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace V"

@@ -4,7 +4,4 @@ background-blur-radius = 10
 macos-titlebar-style = hidden
 font-size = 16
 keybind = global:cmd+grave_accent=toggle_quick_terminal
-
-notify-on-command-finish = always
-notify-on-command-finish-action = bell
-notify-on-command-finish-after = 60s
+macos-hidden = always
