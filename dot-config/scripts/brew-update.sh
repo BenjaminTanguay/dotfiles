@@ -24,7 +24,7 @@ outdated_choices=$(
 # Update selected items
 echo "$outdated_choices" | while read -r line; do
   type=$(echo "$line" | grep -o '\[.*\]' | head -n1)
-  pkg=$(echo "${line#*]}" | xargs)
+  pkg=$(echo "$line" | awk '{print $NF}')
 
   if [[ "$type" == "[formula]" ]]; then
     echo "Updating formula: $pkg"
