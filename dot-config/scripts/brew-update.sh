@@ -21,16 +21,30 @@ outdated_choices=$(
 # Exit if nothing selected
 [[ -z "$outdated_choices" ]] && return
 
-# Update selected items
-echo "$outdated_choices" | while read -r line; do
-  type=$(echo "$line" | grep -o '\[.*\]' | head -n1)
-  pkg=$(echo "$line" | awk '{print $NF}')
+# Separate formulae and casks
+formulae=()
+casks=()
 
-  if [[ "$type" == "[formula]" ]]; then
-    echo "Updating formula: $pkg"
-    brew upgrade "$pkg"
-  else
-    echo "Updating cask: $pkg"
-    brew upgrade --cask "$pkg"
+while IFS= read -r line; do
+  [[ -z "$line" ]] && continue
+  
+  pkg=$(echo "$line" | awk '{print $NF}')
+  
+  if [[ "$line" =~ \[formula\] ]]; then
+    formulae+=("$pkg")
+  elif [[ "$line" =~ \[cask\] ]]; then
+    casks+=("$pkg")
   fi
-done
+done <<< "$outdated_choices"
+
+# Upgrade all formulae at once
+if [[ ${#formulae[@]} -gt 0 ]]; then
+  echo "Upgrading ${#formulae[@]} formula(e): ${formulae[*]}"
+  brew upgrade "${formulae[@]}"
+fi
+
+# Upgrade all casks at once
+if [[ ${#casks[@]} -gt 0 ]]; then
+  echo "Upgrading ${#casks[@]} cask(s): ${casks[*]}"
+  brew upgrade --cask "${casks[@]}"
+fi

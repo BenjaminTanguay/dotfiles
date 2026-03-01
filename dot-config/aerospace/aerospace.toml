@@ -189,6 +189,13 @@ run = "move-node-to-workspace B"
 if.app-id = 'com.zettlr.app'
 run = "move-node-to-workspace C"
 
+# Force all Ghostty windows to use tiling layout (not floating/dialog)
+# This must come first and use check-further-callbacks to allow other rules to run
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+check-further-callbacks = true
+run = "layout tiling"
+
 # Workspace-specific Ghostty windows (matched by title)
 # Order matters - specific rules must come before the default
 [[on-window-detected]]
